@@ -36,6 +36,6 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Override
     public boolean userExists(String email, String username) {
-         return usersRepository.findUserByEmail(email).isPresent() || usersRepository.findUserByUsername(username).isPresent();
+        return usersRepository.findUserByEmail(email).isPresent() || usersRepository.findUserByUsername(username).isPresent();
     }
 }

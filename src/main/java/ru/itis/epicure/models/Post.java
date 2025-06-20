@@ -1,11 +1,16 @@
 package ru.itis.epicure.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
-import java.util.Date;
+import java.util.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
 
 @Entity
 public class Post {
@@ -13,15 +18,36 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
 
-    private Long userId;
+    @ManyToOne
+    private User user;
 
     private String title;
-
     private String content;
 
-    private Long restaurantId;
+    @ManyToOne
+    private Restaurant restaurant;
 
+    @ManyToMany
+    @Builder.Default
+    private Set<Tag> tags = new HashSet<>();
+
+    private Integer rating;
     private Date postDate;
 
-    private Long fileId;
+    @OneToMany(mappedBy = "post")
+    @Builder.Default
+    private List<Comment> createdComments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post")
+    @Builder.Default
+    private List<Like> likes = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "posts")
+    private List<FileInfo> files = new ArrayList<>();
+
+    public boolean isLikedByUser(Long userId) {
+        return likes.stream()
+                .map(Like::getUser)
+                .anyMatch(user -> user.getUserId().equals(userId));
+    }
 }

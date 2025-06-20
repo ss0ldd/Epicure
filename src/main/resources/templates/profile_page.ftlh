@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/Profile.css">
+    <meta name="_csrf" content="${_csrf.token}">
+    <meta name="_csrf_header" content="${_csrf.headerName}">
+</head>
+<body>
+
+
+<header class="header">
+    <div class="nav-container">
+        <h1><a href="/">Epicure</a></h1>
+        <nav class="navigation">
+            <ul>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/logout">Logout</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main class="main-content">
+
+    <div class="userInfo">
+        <h2>Welcome, ${userName!"User"}!</h2>
+
+        <#if posts?has_content>
+            <#list posts as post>
+                <div class="post">
+                    <div class="post-container">
+                        <h3>${post.title!"Untitled Post"}</h3>
+                        <p>Restaurant: ${post.restaurantName!"Unknown"}</p>
+                        <p>Address: ${post.restaurantAddress!"N/A"}</p>
+                        <p>${post.content!"No content"}</p>
+                        <p>${post.date}</p>
+                    </div>
+                </div>
+            </#list>
+        </#if>
+    </div>
+
+</main>
+
+
+<footer class="footer">
+    <p>Epicure &copy; 2025</p>
+</footer>
+
+</body>
+</html>

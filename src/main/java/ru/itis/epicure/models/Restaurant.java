@@ -1,8 +1,17 @@
 package ru.itis.epicure.models;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +29,17 @@ public class Restaurant {
     @Column(unique=true, nullable = false)
     private String restaurantEmail;
 
-    private Double rating; // Average rating
+    @OneToMany(mappedBy = "restaurant")
+    private List<Post> posts = new ArrayList<>();
 
-    private String tags; // Tag Tags~
+    @Transient
+    private Double rating;
+
+    public Double calculateRating() {
+        if (posts.isEmpty()) {
+            return 0.0;
+        }
+        double rating = posts.stream().mapToDouble(Post::getRating).sum();
+        return rating/posts.size();
+    }
 }

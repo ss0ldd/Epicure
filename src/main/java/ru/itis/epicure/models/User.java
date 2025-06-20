@@ -1,12 +1,12 @@
 package ru.itis.epicure.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.util.List;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -26,4 +26,17 @@ public class User {
 
     @Column(unique=true, nullable = false)
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> createdPosts;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> createdComments;
+
+    @OneToMany(mappedBy = "user")
+    private List<Like> likes;
+
+    private String confirmCode;
+    private Role role;
+    private String confirmed;
 }

@@ -5,19 +5,39 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/SignUp.css">
     <title>Document</title>
 </head>
 <body>
 
-<form action="/signUp" method="POST">
-    <input name="email" type="email" placeholder="EMAIL">
-    <input name="password" type="password" placeholder="PASSWORD">
-    <input name="username" type="text" placeholder="USERNAME">
-    <input type="submit" value="SIGN UP">
-</form>
+<div class="page-container">
 
-<div th:if="${error}" style="color:red;">
-    <p th:text="${error}"></p>
+    <main class="main-content">
+
+        <div class="sign-in-box" id="main-box">
+            <div class="sign-in-form" id="form">
+
+                <form action="/signUp" method="POST">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                    <input name="email" type="email" placeholder="EMAIL">
+                    <input name="username" type="text" placeholder="USERNAME">
+                    <input name="password" type="password" placeholder="PASSWORD">
+                    <input type="submit" value="SIGN UP">
+
+                </form>
+
+                <p>Already have an account? <a href="${springMacroRequestContext.contextPath}/signIn">Sign in</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>Epicure</p>
+    </footer>
+
 </div>
 
 </body>
