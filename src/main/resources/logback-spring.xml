@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    
+    <!-- Определение путей для логов -->
+    <property name="LOG_PATH" value="logs"/>
+    <property name="LOG_ARCHIVE" value="${LOG_PATH}/archive"/>
+    
+    <!-- Паттерн для логов -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+    <property name="LOG_PATTERN_WITH_EXCEPTION" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n%ex{full}"/>
+    
+    <!-- Консольный аппендер -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- Основной файл логов -->
+    <appender name="MAIN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-main.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-main.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для пользователей -->
+    <appender name="USER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-users.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-users.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для постов -->
+    <appender name="POST_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-posts.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-posts.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для ресторанов -->
+    <appender name="RESTAURANT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-restaurants.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-restaurants.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для внешнего API -->
+    <appender name="EXTERNAL_API_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-external-api.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-external-api.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для файлов -->
+    <appender name="FILE_STORAGE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-file-storage.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-file-storage.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для безопасности -->
+    <appender name="SECURITY_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-security.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-security.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для REST API -->
+    <appender name="REST_API_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-rest-api.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-rest-api.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для конвертеров -->
+    <appender name="CONVERTER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-converters.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-converters.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для комментариев -->
+    <appender name="COMMENT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-comments.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-comments.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для лайков -->
+    <appender name="LIKE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-likes.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-likes.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для email -->
+    <appender name="EMAIL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-email.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-email.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Логи для исключений -->
+    <appender name="EXCEPTION_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/epicure-exceptions.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN_WITH_EXCEPTION}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/epicure-exceptions.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    
+    <!-- Настройка логгеров для пользователей -->
+    <logger name="ru.itis.epicure.services.UserService" level="INFO" additivity="false">
+        <appender-ref ref="USER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.UserServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="USER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.SignUpService" level="INFO" additivity="false">
+        <appender-ref ref="USER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.SignUpServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="USER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.security" level="INFO" additivity="false">
+        <appender-ref ref="SECURITY_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для постов -->
+    <logger name="ru.itis.epicure.services.PostService" level="INFO" additivity="false">
+        <appender-ref ref="POST_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.PostServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="POST_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для ресторанов -->
+    <logger name="ru.itis.epicure.services.RestaurantService" level="INFO" additivity="false">
+        <appender-ref ref="RESTAURANT_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.RestaurantServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="RESTAURANT_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для внешнего API -->
+    <logger name="ru.itis.epicure.services.ExternalApiService" level="INFO" additivity="false">
+        <appender-ref ref="EXTERNAL_API_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.ExternalApiServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="EXTERNAL_API_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для файлов -->
+    <logger name="ru.itis.epicure.services.FileStorageService" level="INFO" additivity="false">
+        <appender-ref ref="FILE_STORAGE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.FileStorageServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="FILE_STORAGE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для REST API -->
+    <logger name="ru.itis.epicure.controllers.api" level="INFO" additivity="false">
+        <appender-ref ref="REST_API_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для конвертеров -->
+    <logger name="ru.itis.epicure.converters" level="INFO" additivity="false">
+        <appender-ref ref="CONVERTER_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для комментариев -->
+    <logger name="ru.itis.epicure.services.CommentService" level="INFO" additivity="false">
+        <appender-ref ref="COMMENT_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <logger name="ru.itis.epicure.services.CommentServiceImpl" level="INFO" additivity="false">
+        <appender-ref ref="COMMENT_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для лайков -->
+    <logger name="ru.itis.epicure.repository.LikesRepository" level="INFO" additivity="false">
+        <appender-ref ref="LIKE_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для email -->
+    <logger name="ru.itis.epicure.services.EmailService" level="INFO" additivity="false">
+        <appender-ref ref="EMAIL_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для исключений -->
+    <logger name="ru.itis.epicure.exceptions.GlobalExceptionHandler" level="ERROR" additivity="false">
+        <appender-ref ref="EXCEPTION_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для контроллеров -->
+    <logger name="ru.itis.epicure.controllers" level="INFO" additivity="false">
+        <appender-ref ref="MAIN_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для репозиториев -->
+    <logger name="ru.itis.epicure.repository" level="INFO" additivity="false">
+        <appender-ref ref="MAIN_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для конфигурации -->
+    <logger name="ru.itis.epicure.configuration" level="INFO" additivity="false">
+        <appender-ref ref="MAIN_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для моделей -->
+    <logger name="ru.itis.epicure.models" level="INFO" additivity="false">
+        <appender-ref ref="MAIN_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Настройка логгеров для DTO -->
+    <logger name="ru.itis.epicure.dto" level="INFO" additivity="false">
+        <appender-ref ref="MAIN_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    
+    <!-- Корневой логгер -->
+    <root level="INFO">
+        <appender-ref ref="MAIN_FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    
+    <!-- Отключение логов Spring Boot для уменьшения шума -->
+    <logger name="org.springframework.boot" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    
+</configuration>

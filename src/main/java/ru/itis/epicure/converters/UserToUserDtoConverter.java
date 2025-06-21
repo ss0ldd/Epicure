@@ -16,10 +16,8 @@ public class UserToUserDtoConverter implements Converter<User, UserDto> {
         
         return UserDto.builder()
                 .userId(user.getUserId())
-                .username(user.getUsername())
+                .userName(user.getUsername())
                 .email(user.getEmail())
-                .role(user.getRole())
-                .confirmed(user.getConfirmed())
                 .build();
     }
 } 

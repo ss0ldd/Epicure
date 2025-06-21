@@ -1,0 +1,237 @@
+2025-06-21 08:18:34.495 [main] INFO  ru.itis.epicure.EpicureApplication - Starting EpicureApplication using Java 21.0.6 with PID 16800 (C:\Users\cscsm\Desktop\Epicure2\target\classes started by cscsm in C:\Users\cscsm\Desktop\Epicure2)
+2025-06-21 08:18:34.496 [main] INFO  ru.itis.epicure.EpicureApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-21 08:18:36.251 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-21 08:18:36.252 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-21 08:18:36.253 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-21 08:18:36.314 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-21 08:18:36.878 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-21 08:18:37.048 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5950054d
+2025-06-21 08:18:37.049 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-21 08:18:39.872 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-21 08:18:39.908 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2025-06-21 08:18:40.074 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 26 mappings in 'requestMappingHandlerMapping'
+2025-06-21 08:18:40.166 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-06-21 08:18:40.210 [main] DEBUG o.s.s.web.DefaultSecurityFilterChain - Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CsrfFilter, LogoutFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-06-21 08:18:40.266 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-06-21 08:18:40.335 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-06-21 08:18:40.458 [main] DEBUG o.s.w.s.v.f.FreeMarkerConfigurer - File system access not preferred: using SpringTemplateLoader
+2025-06-21 08:18:40.564 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-21 08:18:40.590 [main] INFO  ru.itis.epicure.EpicureApplication - Started EpicureApplication in 6.759 seconds (process running for 7.416)
+2025-06-21 08:19:18.164 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21 08:19:18.164 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-21 08:19:18.164 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-06-21 08:19:18.164 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-06-21 08:19:18.164 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-06-21 08:19:18.165 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@67a2fb00
+2025-06-21 08:19:18.165 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@75f1c170
+2025-06-21 08:19:18.166 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-06-21 08:19:18.166 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-06-21 08:19:18.183 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /signUp
+2025-06-21 08:19:18.192 [http-nio-8080-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /signUp
+2025-06-21 08:19:18.194 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/signUp", parameters={}
+2025-06-21 08:19:18.196 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to ru.itis.epicure.controllers.SignUpController#getSignUpPage()
+2025-06-21 08:19:18.259 [http-nio-8080-exec-1] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-06-21 08:19:18.259 [http-nio-8080-exec-1] DEBUG o.s.w.s.v.freemarker.FreeMarkerView - View name [sign_up_page], model {}
+2025-06-21 08:19:18.260 [http-nio-8080-exec-1] DEBUG o.s.w.s.v.freemarker.FreeMarkerView - Rendering [sign_up_page.ftlh]
+2025-06-21 08:19:18.298 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-06-21 08:19:18.301 [http-nio-8080-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-06-21 08:19:20.790 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /signIn
+2025-06-21 08:19:20.791 [http-nio-8080-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /signIn
+2025-06-21 08:19:20.791 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/signIn", parameters={}
+2025-06-21 08:19:20.791 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to ru.itis.epicure.controllers.SignInController#signIn(Model)
+2025-06-21 08:19:20.812 [http-nio-8080-exec-2] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-06-21 08:19:20.812 [http-nio-8080-exec-2] DEBUG o.s.w.s.v.freemarker.FreeMarkerView - View name [sign_in_page], model {signInForm=SignInForm(username=null, password=null), org.springframework.validation.BindingResult.signInForm=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2025-06-21 08:19:20.813 [http-nio-8080-exec-2] DEBUG o.s.w.s.v.freemarker.FreeMarkerView - Rendering [sign_in_page.ftlh]
+2025-06-21 08:19:20.814 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-06-21 08:19:20.814 [http-nio-8080-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2025-06-21 08:19:26.770 [http-nio-8080-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+2025-06-21 08:19:26.944 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.confirm_code,
+        u1_0.confirmed,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user_epicure u1_0 
+    where
+        u1_0.username=?
+2025-06-21 08:19:27.057 [http-nio-8080-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2025-06-21 08:19:27.057 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.s.ChangeSessionIdAuthenticationStrategy - Changed session id from 9B231D22FDA0FBD9C28FF446C3D5893F
+2025-06-21 08:19:27.058 [http-nio-8080-exec-3] DEBUG o.s.s.w.c.CsrfAuthenticationStrategy - Replaced CSRF Token
+2025-06-21 08:19:27.059 [http-nio-8080-exec-3] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=ru.itis.epicure.security.details.UserDetailsImpl@2bf5eaf3, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=9B231D22FDA0FBD9C28FF446C3D5893F], Granted Authorities=[ROLE_USER]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@2ff012a7]
+2025-06-21 08:19:27.059 [http-nio-8080-exec-3] DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=ru.itis.epicure.security.details.UserDetailsImpl@2bf5eaf3, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=9B231D22FDA0FBD9C28FF446C3D5893F], Granted Authorities=[ROLE_USER]]
+2025-06-21 08:19:27.060 [http-nio-8080-exec-3] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /profile
+2025-06-21 08:19:27.066 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile
+2025-06-21 08:19:27.067 [http-nio-8080-exec-4] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=ru.itis.epicure.security.details.UserDetailsImpl@2bf5eaf3, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=9B231D22FDA0FBD9C28FF446C3D5893F], Granted Authorities=[ROLE_USER]]]
+2025-06-21 08:19:27.067 [http-nio-8080-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile
+2025-06-21 08:19:27.067 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/profile", parameters={}
+2025-06-21 08:19:27.068 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to ru.itis.epicure.controllers.ProfileController#getProfilePage(UserDetailsImpl)
+2025-06-21 08:19:27.073 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.view.RedirectView - View name [redirect:], model {}
+2025-06-21 08:19:27.074 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 302 FOUND
+2025-06-21 08:19:27.080 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /profile/111
+2025-06-21 08:19:27.081 [http-nio-8080-exec-8] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=ru.itis.epicure.security.details.UserDetailsImpl@2bf5eaf3, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=9B231D22FDA0FBD9C28FF446C3D5893F], Granted Authorities=[ROLE_USER]]]
+2025-06-21 08:19:27.081 [http-nio-8080-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /profile/111
+2025-06-21 08:19:27.082 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/profile/111", parameters={}
+2025-06-21 08:19:27.082 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to ru.itis.epicure.controllers.ProfileController#getProfilePage(String, Model, UserDetailsImpl)
+2025-06-21 08:19:27.093 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.confirm_code,
+        u1_0.confirmed,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        user_epicure u1_0 
+    where
+        u1_0.username=?
+2025-06-21 08:19:27.101 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        p1_0.post_id,
+        p1_0.content,
+        p1_0.post_date,
+        p1_0.rating,
+        p1_0.restaurant_restaurant_id,
+        p1_0.title,
+        p1_0.user_user_id 
+    from
+        post p1_0 
+    left join
+        user_epicure u1_0 
+            on u1_0.user_id=p1_0.user_user_id 
+    where
+        u1_0.user_id=?
+2025-06-21 08:19:27.110 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        r1_0.restaurant_id,
+        r1_0.restaurant_address,
+        r1_0.restaurant_email,
+        r1_0.restaurant_name,
+        r1_0.restaurant_phone 
+    from
+        restaurant r1_0 
+    where
+        r1_0.restaurant_id=?
+2025-06-21 08:19:27.118 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        r1_0.restaurant_id,
+        r1_0.restaurant_address,
+        r1_0.restaurant_email,
+        r1_0.restaurant_name,
+        r1_0.restaurant_phone 
+    from
+        restaurant r1_0 
+    where
+        r1_0.restaurant_id=?
+2025-06-21 08:19:27.122 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.post_id,
+        l1_0.like_id,
+        u1_0.user_id,
+        u1_0.confirm_code,
+        u1_0.confirmed,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        likes l1_0 
+    left join
+        user_epicure u1_0 
+            on u1_0.user_id=l1_0.user_id 
+    where
+        l1_0.post_id=?
+2025-06-21 08:19:27.129 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.post_id,
+        f1_1.id,
+        f1_1.original_file_name,
+        f1_1.size,
+        f1_1.storage_file_name,
+        f1_1.type,
+        f1_1.url 
+    from
+        post_file f1_0 
+    join
+        file_info f1_1 
+            on f1_1.id=f1_0.file_id 
+    where
+        f1_0.post_id=?
+2025-06-21 08:19:27.136 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.post_id,
+        l1_0.like_id,
+        u1_0.user_id,
+        u1_0.confirm_code,
+        u1_0.confirmed,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        likes l1_0 
+    left join
+        user_epicure u1_0 
+            on u1_0.user_id=l1_0.user_id 
+    where
+        l1_0.post_id=?
+2025-06-21 08:19:27.138 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.post_id,
+        f1_1.id,
+        f1_1.original_file_name,
+        f1_1.size,
+        f1_1.storage_file_name,
+        f1_1.type,
+        f1_1.url 
+    from
+        post_file f1_0 
+    join
+        file_info f1_1 
+            on f1_1.id=f1_0.file_id 
+    where
+        f1_0.post_id=?
+2025-06-21 08:19:27.139 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        l1_0.post_id,
+        l1_0.like_id,
+        u1_0.user_id,
+        u1_0.confirm_code,
+        u1_0.confirmed,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        likes l1_0 
+    left join
+        user_epicure u1_0 
+            on u1_0.user_id=l1_0.user_id 
+    where
+        l1_0.post_id=?
+2025-06-21 08:19:27.141 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        f1_0.post_id,
+        f1_1.id,
+        f1_1.original_file_name,
+        f1_1.size,
+        f1_1.storage_file_name,
+        f1_1.type,
+        f1_1.url 
+    from
+        post_file f1_0 
+    join
+        file_info f1_1 
+            on f1_1.id=f1_0.file_id 
+    where
+        f1_0.post_id=?
+2025-06-21 08:19:27.194 [http-nio-8080-exec-8] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver - Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-06-21 08:19:27.200 [http-nio-8080-exec-8] DEBUG o.s.w.s.v.freemarker.FreeMarkerView - View name [profile_page], model {userName=111, posts=[PostDto(postId=1, title=Отличная блинная, content=Мне все очень понравилось, добрый персонал, приятная атмосфера!, restaurantName=Кофе и блины, restaurantAddress=Товарищеская ул., 9/42, Казань, rating=5, likes=1, isLiked=true, userId=1, userName=111, date=2025-06-21 07:53:40.008, files=[FileInfoDto(id=1, originalFileName=Снимок экрана 2025-06-21 075100.png, storageFileName=324e332f-e581-45e8-9ce6-46440e2b9330_Снимок экрана 2025-06-21 075100.png, type=image/png, size=768290, url=/files/324e332f-e581-45e8-9ce6-46440e2b9330_Снимок экрана 2025-06-21 075100.png), FileInfoDto(id=2, originalFileName=Снимок экрана 2025-06-21 075140.png, storageFileName=c7be455b-3901-4ac6-a0eb-277f703fc417_Снимок экрана 2025-06-21 075140.png, type=image/png, size=770524, url=/files/c7be455b-3901-4ac6-a0eb-277f703fc417_Снимок экрана 2025-06-21 075140.png)], likesRepository=null), PostDto(postId=2, title=Отличное заведение!, content=Всё супер, restaurantName=Кофе и блины, restaurantAddress=Товарищеская ул., 9/42, Казань, rating=5, likes=0, isLiked=false, userId=1, userName=111, date=2025-06-21 07:54:23.84, files=[], likesRepository=null), PostDto(postId=3, title=Да вроде норм..., content=Да в целом неплохо, мне все нравится, restaurantName=Вкусно — и точка, restaurantAddress=ул. Баумана, 70А, Казань, rating=4, likes=0, isLiked=false, userId=1, userName=111, date=2025-06-21 07:55:13.658, files=[FileInfoDto(id=3, originalFileName=Снимок экрана 2025-06-21 075248.png, storageFileName=5841b19c-eb68-495e-a570-c5f8f4d12131_Снимок экрана 2025-06-21 075248.png, type=image/png, size=672414, url=/files/5841b19c-eb68-495e-a570-c5f8f4d12131_Снимок экрана 2025-06-21 075248.png)], likesRepository=null)]}
+2025-06-21 08:19:27.201 [http-nio-8080-exec-8] DEBUG o.s.w.s.v.freemarker.FreeMarkerView - Rendering [profile_page.ftlh]
+2025-06-21 08:19:27.209 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-06-21 08:19:37.456 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-21 08:19:37.458 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
