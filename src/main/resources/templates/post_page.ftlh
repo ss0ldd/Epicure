@@ -44,7 +44,7 @@
                 <#if post.files?? && post.files?size gt 0>
                     <div class="post-images">
                         <#list post.files as file>
-                            <img src="/files/${file.storageFileName}" alt="Post image" class="post-image">
+                            <img src="${file.url}" alt="Post image" class="post-image">
                         </#list>
                     </div>
                 </#if>

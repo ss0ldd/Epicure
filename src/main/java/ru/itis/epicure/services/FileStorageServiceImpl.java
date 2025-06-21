@@ -33,7 +33,7 @@ public class FileStorageServiceImpl implements FileStorageService {
                 .originalFileName(uploadFile.getOriginalFilename())
                 .size(uploadFile.getSize())
                 .storageFileName(storageName)
-                .url(storagePath + "\\" + storageName)
+                .url("/files/" + storageName)
                 .build();
 
 
@@ -50,7 +50,8 @@ public class FileStorageServiceImpl implements FileStorageService {
         FileInfo fileInfo = filesInfoRepository.findByStorageFileName(fileName);
         response.setContentType(fileInfo.getType());
         try {
-            IOUtils.copy(new FileInputStream(fileInfo.getUrl()), response.getOutputStream());
+            String filePath = storagePath + "\\" + fileName;
+            IOUtils.copy(new FileInputStream(filePath), response.getOutputStream());
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
