@@ -5,6 +5,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 import ru.itis.epicure.dto.PostDto;
 import ru.itis.epicure.dto.RestaurantDto;
+import ru.itis.epicure.exceptions.RestaurantNotFoundException;
 import ru.itis.epicure.models.Restaurant;
 import ru.itis.epicure.repository.PostsRepository;
 import ru.itis.epicure.repository.RestaurantRepository;
@@ -24,7 +25,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public RestaurantDto getRestaurantById(Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
-                .orElseThrow(() -> new RuntimeException("Restaurant not found"));;
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with ID: " + restaurantId));
         return RestaurantDto.from(restaurant);
     }
 
@@ -55,7 +56,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     public RestaurantDto getRestaurantByNameAndAddress(String restaurantName, String address) {
         Restaurant restaurant = restaurantRepository
                 .findByRestaurantNameAndRestaurantAddress(restaurantName, address)
-                .orElseThrow(() -> new RuntimeException("Restaurant not found"));
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with name: " + restaurantName + " and address: " + address));
 
         return RestaurantDto.from(restaurant);
     }

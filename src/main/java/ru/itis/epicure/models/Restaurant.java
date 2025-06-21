@@ -29,7 +29,7 @@ public class Restaurant {
     @Column(unique=true, nullable = false)
     private String restaurantEmail;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "restaurant")
     private List<Post> posts = new ArrayList<>();
 
     @Transient
