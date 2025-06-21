@@ -2,7 +2,7 @@ package ru.itis.epicure.services;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.epicure.dto.PostDto;
 import ru.itis.epicure.dto.PostForm;
@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
@@ -45,16 +45,25 @@ public class PostServiceImpl implements PostService {
     @Override
     @Transactional
     public void addPost(PostForm postForm, Long userId, List<MultipartFile> files) {
+        System.out.println("Starting addPost method");
+        System.out.println("PostForm: " + postForm);
+        System.out.println("UserId: " + userId);
+        System.out.println("Files: " + files);
+        
         if (files != null && files.size() > 5) {
             throw new IllegalArgumentException("Можно прикрепить не более 5 файлов");
         }
 
         User author = usersRepository.findUserByUserId(userId)
                 .orElseThrow(() -> new RuntimeException("User not found")); //////???? в другом месте пофиксить
+        System.out.println("Found user: " + author);
+        
         Restaurant restaurant = restaurantRepository
                 .findByRestaurantId(
                         postForm.getRestaurantId()
                 );
+        System.out.println("Found restaurant: " + restaurant);
+        
         Post post = Post.builder()
                 .title(postForm.getTitle())
                 .content(postForm.getContent())
@@ -64,8 +73,12 @@ public class PostServiceImpl implements PostService {
                 .files(new ArrayList<>())
                 .restaurant(restaurant)
                 .build();
-        System.out.println(post);
-        postsRepository.save(post);
+        System.out.println("Created post object: " + post);
+        
+        Post savedPost = postsRepository.save(post);
+        postsRepository.flush(); // Принудительный flush
+        System.out.println("Saved post: " + savedPost);
+        System.out.println("Saved post ID: " + savedPost.getPostId());
 
         if (files != null && !files.isEmpty()) {
             for (MultipartFile file : files) {
@@ -87,6 +100,7 @@ public class PostServiceImpl implements PostService {
                 }
             }
         }
+        System.out.println("Post creation completed successfully");
     }
 
     @Override

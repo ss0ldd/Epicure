@@ -19,12 +19,14 @@ public class Post {
     private Long postId;
 
     @ManyToOne
+    @JoinColumn(name = "user_user_id")
     private User user;
 
     private String title;
     private String content;
 
     @ManyToOne
+    @JoinColumn(name = "restaurant_restaurant_id")
     private Restaurant restaurant;
 
     @ManyToMany
@@ -34,15 +36,15 @@ public class Post {
     private Integer rating;
     private Date postDate;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default
     private List<Comment> createdComments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Builder.Default
     private List<Like> likes = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "posts")
+    @ManyToMany(mappedBy = "posts", fetch = FetchType.LAZY)
     private List<FileInfo> files = new ArrayList<>();
 
     public boolean isLikedByUser(Long userId) {
