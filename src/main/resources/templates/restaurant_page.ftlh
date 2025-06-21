@@ -20,7 +20,12 @@
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/external/posts">External Posts</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li>
+                    <form action="/logout" method="POST" style="display: inline;">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Logout</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </div>
@@ -41,7 +46,7 @@
                 scrolling="no"
                 marginheight="0"
                 marginwidth="0"
-                src="https://yandex.ru/map-widget/v1/?um=constructor%3A1ceJpWkVlQZxwkmGvL8rD9jOqXgIeTfS&amp;source=constructor">
+                src="https://yandex.ru/map-widget/v1/?text=~ ${restaurant.address?url}">
         </iframe>
 
         <h3>Create Event</h3>
@@ -50,6 +55,12 @@
 
             <label for="eventName">Event Name:</label>
             <input type="text" id="eventName" name="eventName" required>
+
+            <label for="inviteeEmail">Invitee Email:</label>
+            <input type="email" id="inviteeEmail" name="inviteeEmail" required>
+
+            <label for="inviteeName">Invitee Name:</label>
+            <input type="text" id="inviteeName" name="inviteeName" required>
 
             <label for="eventDate">Date:</label>
             <input type="date" id="eventDate" name="eventDate" required>

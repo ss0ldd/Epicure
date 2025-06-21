@@ -21,7 +21,12 @@
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/external/posts">External Posts</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li>
+                    <form action="/logout" method="POST" style="display: inline;">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Logout</button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </div>

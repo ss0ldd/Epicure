@@ -48,6 +48,8 @@ public class RestaurantController {
     @PostMapping("/restaurant/{restaurantId}/event")
     public String createEventAndSendEmail(
             @PathVariable Long restaurantId,
+            @RequestParam("inviteeEmail") String inviteeEmail,
+            @RequestParam("inviteeName") String inviteeName,
             @RequestParam("eventName") String eventName,
             @RequestParam("eventDate") String eventDate,
             @RequestParam("eventTime") String eventTime,
@@ -55,26 +57,28 @@ public class RestaurantController {
 
         User user = userDetails.getUser();
 
-        String subject = "Напоминание о мероприятии: " + eventName;
+        String subject = "Приглашение на " + eventName;
         String text = String.format("""
             Привет, %s!
 
-            Напоминание о мероприятии:
-            Название: %s
+            Пользователь под ником %s приглашает тебя на %s.
+  
             Дата: %s
             Время: %s
 
-            Ресторан: %s
+            Название заведения: %s
             Адрес: %s
+            
+            С уважением, команда Epicure!
             """,
-                user.getUsername(), eventName, eventDate, eventTime,
+                inviteeName, user.getUsername(), eventName, eventDate, eventTime,
                 restaurantService.getRestaurantById(restaurantId).getRestaurantName(),
                 restaurantService.getRestaurantById(restaurantId).getAddress()
         );
 
 
         System.out.println(user.getEmail());
-        emailService.sendEmail(user.getEmail(), subject, text);
+        emailService.sendEmail(inviteeEmail, subject, text);
         System.out.println("email sent");
         model.addAttribute("emailSent", true);
         return getRestaurantPage(model, restaurantId, userDetails);
