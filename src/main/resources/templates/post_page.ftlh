@@ -20,6 +20,7 @@
             <ul>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/">Home</a></li>
+                <li><a href="/external/posts">External Posts</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </nav>
