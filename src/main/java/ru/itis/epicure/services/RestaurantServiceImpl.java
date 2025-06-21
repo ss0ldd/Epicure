@@ -48,6 +48,12 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
+    public List<RestaurantDto> getAllRestaurants() {
+        List<Restaurant> restaurants = restaurantRepository.findAll();
+        return RestaurantDto.from(restaurants);
+    }
+
+    @Override
     public List<PostDto> getRestaurantPosts(Long restaurantId, Long currentUserId) {
         return PostDto.from(postsRepository.findAllByRestaurant_RestaurantId(restaurantId), currentUserId);
     }

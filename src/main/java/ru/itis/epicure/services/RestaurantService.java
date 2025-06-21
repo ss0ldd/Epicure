@@ -11,5 +11,6 @@ public interface RestaurantService {
     List<PostDto> getRestaurantPosts(Long restaurantId, Long currentUserId);
     List<RestaurantDto> getRestaurantByName(String name);
     List<RestaurantDto> getAllRestaurantsByRating();
+    List<RestaurantDto> getAllRestaurants();
     RestaurantDto getRestaurantByNameAndAddress(String restaurantName, String address);
 }
