@@ -91,7 +91,7 @@
         </form>
 
         <#if posts?has_content>
-            <h3>Posts about this restaurant</h3>
+            <h3>Публикации о заведении</h3>
             <#list posts as post>
                 <div class="post">
                     <div class="post-container">
@@ -103,7 +103,7 @@
                         <p>Рейтинг: ${post.rating}</p>
                         <p>Дата: ${post.date}</p>
 
-                        <a href="${springMacroRequestContext.contextPath}/post/${post.postId}">See more</a>
+                        <a href="${springMacroRequestContext.contextPath}/post/${post.postId}">Узнать больше</a>
                     </div>
                 </div>
             </#list>

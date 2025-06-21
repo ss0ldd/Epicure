@@ -19,8 +19,8 @@
                 <form action="/login" method="POST">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-                    <input name="username" type="text" placeholder="Логин">
-                    <input name="password" type="password" placeholder="Пароль">
+                    <input name="username" type="text" placeholder="Логин" required>
+                    <input name="password" type="password" placeholder="Пароль" required>
                     <input type="submit" value="Войти">
                 </form>
 
