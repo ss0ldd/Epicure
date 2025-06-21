@@ -21,14 +21,14 @@
                 <form action="/signUp" method="POST">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-                    <input name="email" type="email" placeholder="EMAIL">
-                    <input name="username" type="text" placeholder="USERNAME">
-                    <input name="password" type="password" placeholder="PASSWORD">
-                    <input type="submit" value="SIGN UP">
+                    <input name="email" type="email" placeholder="Почта">
+                    <input name="username" type="text" placeholder="Логин">
+                    <input name="password" type="password" placeholder="Пароль">
+                    <input type="submit" value="Зарегистрироваться">
 
                 </form>
 
-                <p>Already have an account? <a href="${springMacroRequestContext.contextPath}/signIn">Sign in</a></p>
+                <p>Уже зарегистрированны? <a href="${springMacroRequestContext.contextPath}/signIn">Войти</a></p>
             </div>
         </div>
 

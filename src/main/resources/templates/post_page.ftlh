@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Post</title>
+    <title>Публикация</title>
     <link rel="stylesheet" href="/css/Post.css">
     <meta name="_csrf" content="${_csrf.token}">
     <meta name="_csrf_header" content="${_csrf.headerName}">
@@ -18,13 +18,13 @@
         <h1><a href="/">Epicure</a></h1>
         <nav class="navigation">
             <ul>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/external/posts">External Posts</a></li>
+                <li><a href="/profile">Профиль</a></li>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/external/posts">Публикации</a></li>
                 <li>
                     <form action="/logout" method="POST" style="display: inline;">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Logout</button>
+                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Выйти</button>
                     </form>
                 </li>
             </ul>
@@ -39,12 +39,12 @@
         <div class="post">
             <div class="post-container">
                 <h2>${post.title!"Untitled Post"}</h2>
-                <p>User: ${post.userName!"Anonymous"}</p>
-                <p>Restaurant: ${post.restaurantName!"Unknown"}</p>
-                <p>Address: ${post.restaurantAddress!"N/A"}</p>
+                <p>Пользователь: ${post.userName!"Anonymous"}</p>
+                <p>Заведение: ${post.restaurantName!"Unknown"}</p>
+                <p>Адресс: ${post.restaurantAddress!"N/A"}</p>
                 <p>${post.content!"No content provided."}</p>
-                <p>Rating: ${post.rating!"Not rated yet"}</p>
-                <p>Date: ${post.date}</p>
+                <p>Рейтинг: ${post.rating!"Not rated yet"}</p>
+                <p>Дата: ${post.date}</p>
 
                 <#if post.files?? && post.files?size gt 0>
                     <div class="post-images">
@@ -55,7 +55,7 @@
                 </#if>
 
                 <button id="like-btn-${post.postId}" onclick="likePost(${post.postId})" class="like-btn">
-                    ❤️ Like
+                    ❤️ Нравится
                 </button>
                 <span id="likes-count-${post.postId}">${post.likes!0}</span>
             </div>
@@ -63,7 +63,7 @@
 
         <form action="/post/${post.postId}" method="POST">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <input name="comment" type="text" placeholder="Write a comment...">
+            <input name="comment" type="text" placeholder="Оставить комментарий...">
             <input type="submit" value="Send">
         </form>
 
@@ -71,7 +71,7 @@
             <#list comments as comment>
                 <div class="comment">
                     <div class="comment-container">
-                        <p><strong>${comment.userName!"User"}:</strong></p>
+                        <p><strong>${comment.userName!"Пользователь"}:</strong></p>
                         <p>${comment.comment!"..."}</p>
                         <p>${comment.date}</p>
                     </div>

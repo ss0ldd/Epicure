@@ -62,17 +62,22 @@
             <h1><a href="/">Epicure</a></h1>
             <nav class="navigation">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/external/posts">External Posts</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/sign-out">Sign Out</a></li>
+                    <li><a href="/profile">Профиль</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/external/posts">Публикации</a></li>
+                    <li>
+                        <form action="/logout" method="POST" style="display: inline;">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Выйти</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="external-post">
-        <a href="/external/posts" class="back-btn">← Back to Posts</a>
+        <a href="/external/posts" class="back-btn">← Обратно к публикациям</a>
         
         <#if error??>
             <div class="error">
@@ -85,12 +90,12 @@
                 <h2 class="post-title">${post.title!"Untitled"}</h2>
                 <p class="post-body">${post.body!"No content"}</p>
                 <div class="post-meta">
-                    <strong>Post ID:</strong> ${post.id!0}<br>
-                    <strong>User ID:</strong> ${post.userId!0}
+                    <strong>Id публикации:</strong> ${post.id!0}<br>
+                    <strong>Id пользователя:</strong> ${post.userId!0}
                 </div>
             </div>
         <#else>
-            <p>Post not found.</p>
+            <p>Публикация не найдена.</p>
         </#if>
     </main>
 

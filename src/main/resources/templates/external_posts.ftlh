@@ -60,19 +60,24 @@
             <h1><a href="/">Epicure</a></h1>
             <nav class="navigation">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/external/posts">External Posts</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/sign-out">Sign Out</a></li>
+                    <li><a href="/profile">Профиль</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/external/posts">Публикации</a></li>
+                    <li>
+                        <form action="/logout" method="POST" style="display: inline;">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Выйти</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="external-posts">
-        <h2>External Posts from JSONPlaceholder API</h2>
+        <h2>Публикации из JSONPlaceholder API</h2>
         
-        <a href="/external/posts/create" class="create-btn">Create New Post</a>
+        <a href="/external/posts/create" class="create-btn">Создать новую публикацию</a>
         
         <#if error??>
             <div class="error">
@@ -86,10 +91,10 @@
                     <h3 class="post-title">${post.title!"Untitled"}</h3>
                     <p class="post-body">${post.body!"No content"}</p>
                     <div class="post-meta">
-                        <strong>Post ID:</strong> ${post.id!0} | 
-                        <strong>User ID:</strong> ${post.userId!0}
+                        <strong>Id публикации:</strong> ${post.id!0} |
+                        <strong>Id пользователя:</strong> ${post.userId!0}
                     </div>
-                    <a href="/external/posts/${post.id}">View Details</a>
+                    <a href="/external/posts/${post.id}">Узнать больше</a>
                 </div>
             </#list>
         <#else>

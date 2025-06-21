@@ -17,13 +17,13 @@
         <h1><a href="/">Epicure</a></h1>
         <nav class="navigation">
             <ul>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/external/posts">External Posts</a></li>
+                <li><a href="/profile">Профиль</a></li>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/external/posts">Публикации</a></li>
                 <li>
                     <form action="/logout" method="POST" style="display: inline;">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Logout</button>
+                        <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Выйти</button>
                     </form>
                 </li>
             </ul>
@@ -36,8 +36,8 @@
     <div class="restaurantInfoList">
 
         <form action="/" method="get">
-            <input type="search" name="s" placeholder="Enter restaurant name..." />
-            <button type="submit">Find</button>
+            <input type="search" name="s" placeholder="Введите название заведения..." />
+            <button type="submit">Поиск</button>
         </form>
 
         <#if searchQuery??>
@@ -48,12 +48,12 @@
             <#list restaurants as restaurant>
                 <div class="restaurant-info">
                     <div class="restaurant-container">
-                        <p>Name: ${restaurant.restaurantName!"Unknown"}</p>
-                        <p>Address: ${restaurant.address!"N/A"}</p>
-                        <p>Rating: ${restaurant.rating!"Not rated"}</p>
+                        <p>Заведение: ${restaurant.restaurantName!"Unknown"}</p>
+                        <p>Адресс: ${restaurant.address!"N/A"}</p>
+                        <p>Рейтинг: ${restaurant.rating!"Not rated"}</p>
                     </div>
 
-                    <a href="${springMacroRequestContext.contextPath}/restaurant/${restaurant.restaurantId}">See more</a>
+                    <a href="${springMacroRequestContext.contextPath}/restaurant/${restaurant.restaurantId}">Узнать больше</a>
                 </div>
             </#list>
         </#if>

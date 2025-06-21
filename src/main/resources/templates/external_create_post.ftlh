@@ -71,41 +71,46 @@
             <h1><a href="/">Epicure</a></h1>
             <nav class="navigation">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/external/posts">External Posts</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/sign-out">Sign Out</a></li>
+                    <li><a href="/profile">Профиль</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/external/posts">Публикации</a></li>
+                    <li>
+                        <form action="/logout" method="POST" style="display: inline;">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <button type="submit" style="background: none; border: none; color: #333; cursor: pointer; font-size: inherit;">Выйти</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="create-form">
-        <a href="/external/posts" class="back-btn">← Back to Posts</a>
+        <a href="/external/posts" class="back-btn">← Вернуться к публикациям</a>
         
         <div class="form-container">
-            <h2>Create New External Post</h2>
-            <p>This will create a post via JSONPlaceholder API</p>
+            <h2>Создать новую публикацию</h2>
+            <p>Будет создана публикация с помощью JSONPlaceholder API</p>
             
             <form action="/external/posts/create" method="POST">
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 
                 <div class="form-group">
-                    <label for="title">Title:</label>
+                    <label for="title">Заголовок:</label>
                     <input type="text" id="title" name="title" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="body">Content:</label>
+                    <label for="body">Содержание:</label>
                     <textarea id="body" name="body" required></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="userId">User ID:</label>
+                    <label for="userId">Id пользователя:</label>
                     <input type="number" id="userId" name="userId" value="1" required>
                 </div>
                 
-                <button type="submit" class="submit-btn">Create Post</button>
+                <button type="submit" class="submit-btn">Опубликовать</button>
             </form>
         </div>
     </main>

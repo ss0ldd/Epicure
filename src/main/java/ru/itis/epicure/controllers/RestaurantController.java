@@ -59,7 +59,7 @@ public class RestaurantController {
 
         String subject = "Приглашение на " + eventName;
         String text = String.format("""
-            Привет, %s!
+            Добрый день, %s!
 
             Пользователь под ником %s приглашает тебя на %s.
   

@@ -19,12 +19,12 @@
                 <form action="/login" method="POST">
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-                    <input name="username" type="text" placeholder="USERNAME">
-                    <input name="password" type="password" placeholder="PASSWORD">
-                    <input type="submit" value="SIGN IN">
+                    <input name="username" type="text" placeholder="Логин">
+                    <input name="password" type="password" placeholder="Пароль">
+                    <input type="submit" value="Войти">
                 </form>
 
-                <p>Don't have an account? <a href="${springMacroRequestContext.contextPath}/signUp">Sign up for free</a></p>
+                <p>Еще нет аккаунта? <a href="${springMacroRequestContext.contextPath}/signUp">Зарегистрироваться</a></p>
             </div>
         </div>
 
